@@ -1,7 +1,7 @@
 package com.shuyuan.judd.client.utils;
 
 import com.shuyuan.judd.client.model.trade.*;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.CellRangeAddress;
 import org.apache.poi.hssf.util.HSSFColor;
@@ -20,9 +20,8 @@ import java.util.Map;
  * create 2018/10/13
  * 
  **/
+@Slf4j
 public class ExcelUtil {
-
-    private static Logger logger = Logger.getLogger(ExcelUtil.class);
 
     @Autowired
     private HSSFWorkbook workbook = null;
@@ -92,7 +91,7 @@ public class ExcelUtil {
     @SuppressWarnings("deprecation")
     public void createExcelRow(HSSFWorkbook workbook, HSSFSheet sheet, int rowNO, int rowHeight, int colNum, String fontCaption, int fontSize, String fontWeight, String align, String colour) {
         if (colNum < 0) {
-            logger.debug(this.getClass().getName() + " --> Excel column number is null");
+            log.debug(this.getClass().getName() + " --> Excel column number is null");
             colNum = 100;
         }
 //        sheet.setColumnWidth(rowNO,120);
@@ -115,7 +114,7 @@ public class ExcelUtil {
 
     public void createSubtotal(HSSFWorkbook workbook, HSSFSheet sheet, int rowNO, int rowHeight, int colNum, List<String> fontCaption, int fontSize, String fontWeight, String align, String colour) {
         if (colNum < 0) {
-            logger.debug(this.getClass().getName() + " --> Excel column number is null");
+            log.debug(this.getClass().getName() + " --> Excel column number is null");
             colNum = 100;
         }
         HSSFRow row = sheet.createRow(rowNO);  //创建第一行
@@ -177,7 +176,7 @@ public class ExcelUtil {
     public void createColumnHeader(HSSFSheet sheet, int rowNO, int rowHeight, String[] columnHeader, int fontSize, String fontWeight,
                                    String align) {
         if (columnHeader == null || columnHeader.length < 1) {
-            logger.debug(this.getClass().getName() + " --> Excel columnHeader is null");
+            log.debug(this.getClass().getName() + " --> Excel columnHeader is null");
             return;
         }
         HSSFRow row = sheet.createRow(rowNO);
@@ -226,7 +225,7 @@ public class ExcelUtil {
     public Integer createTransactiontype(HSSFSheet sheet, int rowNO, int rowHeight, List<Map<String, String>> columnHeader, int fontSize, String fontWeight,
                                          String align) {
         if (columnHeader == null || columnHeader.size() < 1) {
-            logger.debug(this.getClass().getName() + " --> Excel columnHeader is null");
+            log.debug(this.getClass().getName() + " --> Excel columnHeader is null");
             return rowNO;
         }
         for (Map<String, String> map : columnHeader) {
@@ -344,7 +343,7 @@ public class ExcelUtil {
     private void createColumnDataDesc(HSSFSheet sheet, int numNO, int rowNO, int currRowNO, int rowHeight, String[][] columnData, int fontSize, String fontWeight,
                                       String align) {
         if (columnData == null || columnData.length < 1) {
-            logger.debug(this.getClass().getName() + " --> Excel columnData is null");
+            log.debug(this.getClass().getName() + " --> Excel columnData is null");
 //   return ;
         }
         HSSFRow row = sheet.createRow(rowNO);
@@ -386,7 +385,7 @@ public class ExcelUtil {
     public void createTitle(HSSFSheet sheet, int numNO, int rowNO, int currRowNO, int rowHeight, List<String> columnData, int fontSize, String fontWeight,
                             String align) {
         if (columnData == null || columnData.size() < 1) {
-            logger.debug(this.getClass().getName() + " --> Excel columnData is null");
+            log.debug(this.getClass().getName() + " --> Excel columnData is null");
 //   return ;
         }
         HSSFRow row = sheet.createRow(rowNO);
@@ -421,7 +420,7 @@ public class ExcelUtil {
     public void createTitleTixian(HSSFSheet sheet, int numNO, int rowNO, int currRowNO, int rowHeight, List<String> columnData, int fontSize, String fontWeight,
                             String align) {
         if (columnData == null || columnData.size() < 1) {
-            logger.debug(this.getClass().getName() + " --> Excel columnData is null");
+            log.debug(this.getClass().getName() + " --> Excel columnData is null");
 //   return ;
         }
         HSSFRow row = sheet.createRow(rowNO);
@@ -468,7 +467,7 @@ public class ExcelUtil {
     public void createCash(HSSFSheet sheet, int numNO, int rowNO, int currRowNO, int rowHeight, List<String> columnData, int fontSize, String fontWeight,
                            String align) {
         if (columnData == null || columnData.size() < 1) {
-            logger.debug(this.getClass().getName() + " --> Excel columnData is null");
+            log.debug(this.getClass().getName() + " --> Excel columnData is null");
 //   return ;
         }
         HSSFRow row = sheet.createRow(rowNO);
@@ -561,7 +560,7 @@ public class ExcelUtil {
      */
     public HSSFCellStyle createCellFontStyle(HSSFWorkbook workbook, int fontSize, String fontWeight, String align) {
         if (workbook == null) {
-            logger.debug(this.getClass().getName() + " --> Excel HSSFWorkbook FontStyle is not set");
+            log.debug(this.getClass().getName() + " --> Excel HSSFWorkbook FontStyle is not set");
             return null;
         }
 
