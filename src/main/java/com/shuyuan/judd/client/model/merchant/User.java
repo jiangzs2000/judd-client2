@@ -28,6 +28,8 @@ public class User implements Serializable {
 
     private String password;
 
+    private String mobile;
+
     private Long createUser;
 
     private Date createTime;

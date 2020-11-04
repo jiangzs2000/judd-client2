@@ -25,7 +25,7 @@ public class Merchant implements Serializable {
     private String mobileNo;
     private String businessLicenseNo;
     private String businessLicenseUrl;
-    private String isBlocking;
+    private String state;
     private Integer withdrawDepositType;
     private String withdrawDepositRule = "T+1";
     private Date startDate;
@@ -37,6 +37,12 @@ public class Merchant implements Serializable {
     private Date updateTime;
     private Integer status;
     private String extension;
+    public static class State {
+        public static final String NOT_AVAILABLE = "N";
+        public static final String PASS_REVIEW = "P";
+        public static final String AVAILABLE = "A";
+        public static final String BLOCK = "B";
+    }
     @Override
     public String toString() {
         return JSONObject.toJSONString(this);

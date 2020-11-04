@@ -2,7 +2,7 @@ package com.shuyuan.judd.client.model.enums;
 
 import java.util.stream.Stream;
 
-public enum RegistrationApplicationStatusEnum {
+public enum ChannelRegistrationApplicationStateEnum {
     INIT(1,"初始"),
     REGISTED(2,"基础信息审核成功"),
     MATERIAL_UPLOADED(3, "资料上传待审核"),
@@ -12,7 +12,7 @@ public enum RegistrationApplicationStatusEnum {
 
     private int code;
     private String name;
-    RegistrationApplicationStatusEnum(int code, String name){
+    ChannelRegistrationApplicationStateEnum(int code, String name){
         this.code = code;
         this.name = name;
     }

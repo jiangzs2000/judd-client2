@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Data
-public class RegistrationAppliationQuery extends Query {
+public class ChannelRegistrationApplicationQuery extends Query {
     private List<String> createUsers;
     /**
      * YYYYMMDD

@@ -8,7 +8,7 @@ public class QueryResult {
     /**
      * null：代表不分页
      */
-    private Integer pageCount = 0;
+    private Integer totalPages = 0;
     /**
      * null：代表不分页
      */

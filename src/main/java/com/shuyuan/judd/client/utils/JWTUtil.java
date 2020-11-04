@@ -19,6 +19,7 @@ public class JWTUtil {
     public static final String MERCHANT_NO = "merchantno";
     public static final String ROLES = "roles";
     public static final String NAME = "name";
+    public static final String PID = "pid";
     private static final Logger logger = LoggerFactory.getLogger(JWTUtil.class);
 
     /**
@@ -39,6 +40,7 @@ public class JWTUtil {
                 .claim(MERCHANT_NO, user.getMerchantNo())
                 .claim(ROLES, user.getRoles())
                 .claim(NAME, user.getName())
+                .claim(PID, user.getPid())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
                 .signWith(SignatureAlgorithm.RS256, privateKey).compact();

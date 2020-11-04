@@ -136,7 +136,7 @@ public class FundInOrder {
      */
     private Integer status;
 
-    public static class State{
+    public static class State {
         public static final String INIT = "I";
         public static final String SUCCESS = "S";
         public static final String PROCESSING = "P";
